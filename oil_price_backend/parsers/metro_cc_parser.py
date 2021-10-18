@@ -15,6 +15,8 @@ def get_oil_list():
             for good in api_response['data']['data']:
                 oil_list.append([good['name'], good['prices']['offline']['price'], good['url']])
             api_response = requests.get(api_response['data']['next_page_url']).json()
+    else:
+        return 'возникла ошибка, попробуйте повторить попытку позже'
 
 
 get_oil_list()
